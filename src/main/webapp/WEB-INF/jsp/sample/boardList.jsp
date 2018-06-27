@@ -2,10 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>first</title>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ include file="/WEB-INF/include/include-header.jsp" %>
 </head>
 <body>
 	<h2>게시판 목록</h2>
@@ -30,7 +27,7 @@
 					<c:forEach items="${list }" var="row">
 						<tr>
 							<td>${row.idx }</td>
-							<td>${row.title }</td>
+							<td class="title"><a href="/first/sample/openBoardDetail.do?IDX=${row.idx}" name="title">${row.title }</a></td>
 							<td>${row.hit_cnt }</td>
 							<td>${row.crea_dtm }</td>
 						</tr>	
@@ -44,5 +41,22 @@
 			</c:choose>
 		</tbody>
 	</table>
+	<br/>
+    <a href="#this" class="btn" id="write">글쓰기</a>
+    <%@ include file="/WEB-INF/include/include-body.jsp" %>
+    <script type="text/javascript">
+    	$(document).ready(function(){
+    		$("#write").on("click", function(e){
+    			e.preventDefault();
+    			fn_openBoardWrite();
+    		});
+    	});
+    	
+    	function fn_openBoardWrite(){
+    		var comSubmit = new ComSubmit();
+    		comSubmit.setUrl("<c:url value='/sample/openBoardWrite.do'/>");
+    		comSubmit.submit();
+    	}
+    </script>
 </body>
 </html>

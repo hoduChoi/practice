@@ -7,11 +7,67 @@
      		SELECT 
      			idx, title, hit_cnt, crea_dtm
      		FROM
-     			tb_board
+     			tb_board2
      		where 
      			del_gb = 'n'
      		order by idx desc
      			
      	]]>
      </select>
+     
+     <insert id="insertBoard" parameterType="hashmap">
+     	<![CDATA[
+     		INSERT INTO tb_board2
+     		(
+     			title, 
+     			contents, 
+     			hit_cnt, 
+     			del_gb,
+     			crea_dtm, 
+     			crea_id
+     		)
+			VALUES 
+			(
+				#{TITLE}, 
+				#{CONTENTS}, 
+				0, 
+				'n', 
+				NOW(), 
+				'Admin'
+			)
+     	]]>
+     </insert>
+     
+     <update id="updateHitCnt" parameterType="hashmap">
+     	<![CDATA[
+     		UPDATE tb_board2
+			SET 
+				hit_cnt = hit_cnt+1
+			WHERE 
+				idx = #{IDX}
+     	]]>
+     </update>
+     
+      <select id="selectBoardDetail" parameterType="hashmap" resultType="hashmap">
+     	<![CDATA[
+     		SELECT 
+     			idx, title, contents, hit_cnt, crea_id, crea_dtm
+     		FROM
+     			tb_board2
+     		WHERE 
+     			del_gb = 'n'
+			AND idx = #{IDX}
+     			
+     	]]>
+     </select>
+     
+     <update id="updateBoard" parameterType="hashmap">
+     	<![CDATA[
+     		UPDATE tb_board2
+     		SET title = #{TITLE},
+     			contents = #{CONTENTS},
+     		WHERE
+     			idx = #{IDX}
+     	]]>
+     </update>
 </mapper>
