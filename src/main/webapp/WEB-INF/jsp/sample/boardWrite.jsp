@@ -5,7 +5,7 @@
 <%@ include file="/WEB-INF/include/include-header.jsp" %>
 </head>
 <body>
-    <form id="frm">
+    <form id="frm" enctype="multipart/form-data">
         <table class="board_view">
             <colgroup>
                 <col width="15%">
@@ -24,7 +24,7 @@
                 </tr>
             </tbody>
         </table>
-         
+        <input type="file" name="file"> <br/><br/>
         <a href="#this" class="btn" id="write" >작성하기</a>
         <a href="#this" class="btn" id="list" >목록으로</a>
     </form>

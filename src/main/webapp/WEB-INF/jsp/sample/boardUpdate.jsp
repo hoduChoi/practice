@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
 <%@ include file="/WEB-INF/include/include-header.jsp" %>
@@ -14,55 +13,55 @@
             <col width="15%"/>
             <col width="35%"/>
         </colgroup>
-        <caption>°Ô½Ã±Û »ó¼¼</caption>
+        <caption>ê²Œì‹œê¸€ ìƒì„¸</caption>
         <tbody>
             <tr>
-                <th scope="row">±Û ¹øÈ£</th>
+                <th scope="row">ê¸€ ë²ˆí˜¸</th>
                 <td>
                     ${map.idx }
                     <input type="hidden" id="IDX" name="IDX" value="${map.idx }">
                 </td>
-                <th scope="row">Á¶È¸¼ö</th>
+                <th scope="row">ì¡°íšŒìˆ˜</th>
                 <td>${map.hit_cnt }</td>
             </tr>
             <tr>
-                <th scope="row">ÀÛ¼ºÀÚ</th>
+                <th scope="row">ì‘ì„±ì</th>
                 <td>${map.crea_id }</td>
-                <th scope="row">ÀÛ¼º½Ã°£</th>
+                <th scope="row">ì‘ì„±ì‹œê°„</th>
                 <td>${map.crea_dtm }</td>
             </tr>
             <tr>
-                <th scope="row">Á¦¸ñ</th>
+                <th scope="row">ì œëª©</th>
                 <td colspan="3">
                     <input type="text" id="TITLE" name="TITLE" class="wdp_90" value="${map.title }"/>
                 </td>
             </tr>
             <tr>
                 <td colspan="4" class="view_text">
-                    <textarea rows="20" cols="100" title="³»¿ë" id="CONTENTS" name="CONTENTS">${map.contents }</textarea>
+                    <textarea rows="20" cols="100" title="ë‚´ìš©" id="CONTENTS" name="CONTENTS">${map.contents }</textarea>
                 </td>
             </tr>
         </tbody>
     </table>
 </form>
-<a href="#this" class="btn" id="list">¸ñ·ÏÀ¸·Î</a>
-<a href="#this" class="btn" id="update">ÀúÀåÇÏ±â</a>
-<a href="#this" class="btn" id="delete">»èÁ¦ÇÏ±â</a>
+<a href="#this" class="btn" id="list">ëª©ë¡ìœ¼ë¡œ</a>
+<a href="#this" class="btn" id="update">ì €ì¥í•˜ê¸°</a>
+<a href="#this" class="btn" id="delete">ì‚­ì œí•˜ê¸°</a>
  
 <%@ include file="/WEB-INF/include/include-body.jsp" %>
 <script type="text/javascript">
     $(document).ready(function(){
-        $("#list").on("click", function(e){ //¸ñ·ÏÀ¸·Î ¹öÆ°
+        $("#list").on("click", function(e){ //ëª©ë¡ìœ¼ë¡œ ë²„íŠ¼
             e.preventDefault();
             fn_openBoardList();
         });
          
-        $("#update").on("click", function(e){ //ÀúÀåÇÏ±â ¹öÆ°
+        $("#update").on("click", function(e){ //ì €ì¥í•˜ê¸° ë²„íŠ¼
             e.preventDefault();
             fn_updateBoard();
         });
          
-        $("#delete").on("click", function(e){ //»èÁ¦ÇÏ±â ¹öÆ°
+        $("#delete").on("click", function(e){ //ì‚­ì œí•˜ê¸° ë²„íŠ¼
             e.preventDefault();
             fn_deleteBoard();
         });

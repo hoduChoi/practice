@@ -64,10 +64,42 @@
      <update id="updateBoard" parameterType="hashmap">
      	<![CDATA[
      		UPDATE tb_board2
-     		SET title = #{TITLE},
-     			contents = #{CONTENTS},
+     		SET 
+     			title = #{TITLE},
+     			contents = #{CONTENTS}
      		WHERE
      			idx = #{IDX}
      	]]>
      </update>
+     
+     <update id="deleteBoard" parameterType="hashmap">
+     	<![CDATA[
+     		UPDATE tb_board2
+     		SET 
+     			del_gb = 'y'
+     		WHERE
+     			idx = #{IDX} 
+     	]]>
+     </update>
+     
+     <insert id="insertFile" parameterType="">
+     	<![CDATA[
+     		INSERT INTO 
+     		(
+     			board_idx, 
+     			original_file_name, 
+     			stored_file_name, 
+     			file_size,
+     			crea_id
+     		)
+			VALUES 
+			(
+				#{BOARD_IDX}, 
+				#{ORIGINAL_FILE_NAME}, 
+				#{STORED_FILE_NAME}, 
+				#{FILE_SIZE},  
+				'Admin'
+			)
+     	]]>
+     </insert>
 </mapper>

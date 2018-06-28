@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
 <%@ include file="/WEB-INF/include/include-header.jsp" %>
@@ -13,22 +12,22 @@
         <col width="15%"/>
         <col width="35%"/>
     </colgroup>
-    <caption>°Ô½Ã±Û »ó¼¼</caption>
+    <caption>ê²Œì‹œê¸€ ìƒì„¸</caption>
     <tbody>
         <tr>
-            <th scope="row">±Û ¹øÈ£</th>
+            <th scope="row">ê¸€ ë²ˆí˜¸</th>
             <td>${map.idx }</td>
-            <th scope="row">Á¶È¸¼ö</th>
+            <th scope="row">ì¡°íšŒìˆ˜</th>
             <td>${map.hit_cnt }</td>
         </tr>
         <tr>
-            <th scope="row">ÀÛ¼ºÀÚ</th>
+            <th scope="row">ì‘ì„±ì</th>
             <td>${map.crea_id }</td>
-            <th scope="row">ÀÛ¼º½Ã°£</th>
+            <th scope="row">ì‘ì„±ì‹œê°„</th>
             <td>${map.crea_dtm }</td>
         </tr>
         <tr>
-            <th scope="row">Á¦¸ñ</th>
+            <th scope="row">ì œëª©</th>
             <td colspan="3">${map.title }</td>
         </tr>
         <tr>
@@ -36,13 +35,13 @@
         </tr>
     </tbody>
 </table>
-<a href="#this" class="btn" id="list">¸ñ·ÏÀ¸·Î</a>
-<a href="#this" class="btn" id="update">¼öÁ¤ÇÏ±â</a>
+<a href="#this" class="btn" id="list">ëª©ë¡ìœ¼ë¡œ</a>
+<a href="#this" class="btn" id="update">ìˆ˜ì •í•˜ê¸°</a>
 
 <%@ include file="/WEB-INF/include/include-body.jsp" %>
 <script type="text/javascript">
         $(document).ready(function(){
-            $("#list").on("click", function(e){ //¸ñ·ÏÀ¸·Î ¹öÆ°
+            $("#list").on("click", function(e){ //ëª©ë¡ìœ¼ë¡œ ë²„íŠ¼
                 e.preventDefault();
                 fn_openBoardList();
             });
@@ -60,9 +59,9 @@
         }
          
         function fn_openBoardUpdate(){
-            var idx = "${map.IDX}";
+            var idx = "${map.idx}";
             var comSubmit = new ComSubmit();
-            comSubmit.setUrl("<c:url value='/sample/openBoardUpdate.do?IDX=${map.idx }' />");
+            comSubmit.setUrl("<c:url value='/sample/openBoardUpdate.do' />");
             comSubmit.addParam("IDX", idx);
             comSubmit.submit();
         }
